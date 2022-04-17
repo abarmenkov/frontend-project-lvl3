@@ -45,7 +45,8 @@ module.exports = () => {
     config.mode = "development";
   }
   return config;
-};*/
+}; */
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
