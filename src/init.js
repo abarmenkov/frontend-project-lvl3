@@ -1,12 +1,12 @@
 import i18next from 'i18next';
 import _ from 'lodash';
-// import fetchData from './utils/fetchData.js';
+import fetchData from './utils/fetchData.js';
 import initView from './view.js';
 import ru from './locales/ru.js';
 import validateUrl from './utils/validator.js';
-// import parseXml from './utils/parser.js';
-// import getFeedAndPosts from './utils/utils.js';
-// import updatePosts from './utils/updater.js';
+import parseXml from './utils/parser.js';
+import getFeedAndPosts from './utils/utils.js';
+import updatePosts from './utils/updater.js';
 
 export default () => {
   const elements = {
