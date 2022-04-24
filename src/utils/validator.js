@@ -7,7 +7,7 @@ export default (url, addedUrls, i18n) => {
     },
     mixed: {
       required: i18n.t('form.errors.required'),
-      notOneOf: i18n.t('form.errors.notUniqUrl'),
+      notOneOf: i18n.t('form.errors.notUniqueUrl'),
     },
   });
 
