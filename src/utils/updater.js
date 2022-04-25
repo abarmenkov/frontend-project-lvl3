@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import _ from 'lodash';
-import fetchData from './fetchData';
-import parseXml from './parser';
-import getFeedAndPosts from './utils';
+import fetchData from './fetchData.js';
+import parseXml from './parser.js';
+import getFeedAndPosts from './utils.js';
 
 const updatePosts = (watchedState) => {
   const { feeds, posts } = watchedState;
