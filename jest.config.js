@@ -19,7 +19,7 @@ module.exports = {
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
 
-  // An array of glob patterns indicating a set of files 
+  // An array of glob patterns indicating a set of files
   // for which coverage information should be collected
   // collectCoverageFrom: undefined,
 
@@ -54,7 +54,7 @@ module.exports = {
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
 
-  // A path to a module which exports an async function that is triggered once 
+  // A path to a module which exports an async function that is triggered once
   // before all test suites
   // globalSetup: undefined,
 
@@ -64,8 +64,9 @@ module.exports = {
   // A set of global variables that need to be available in all test environments
   // globals: {},
 
-  // The maximum amount of workers used to run your tests. 
-  // Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+  // The maximum amount of workers used to run your tests.
+  // Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number.
+  // maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
@@ -197,7 +198,7 @@ module.exports = {
 
   // Indicates whether each individual test should be reported during the run
   // verbose: undefined,
-
+  
   // An array of regexp patterns that are matched against all source file paths 
   // before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
