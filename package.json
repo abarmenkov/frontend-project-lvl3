@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Hexlet project lvl 3. RSS aggregator.",
-  "main": "src/index.js",
+  "main": "src/init.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --mode=production --node-env=production",
