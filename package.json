@@ -1,8 +1,8 @@
 {
-  "name": "my-webpack-project",
+  "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "My webpack project",
-  "main": "index.js",
+  "description": "Hexlet project lvl 3. RSS aggregator.",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
     "build": "webpack --mode=production --node-env=production",
