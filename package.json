@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Hexlet project lvl 3. RSS aggregator.",
   "main": "src/init.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "build": "webpack --mode=production --node-env=production",
