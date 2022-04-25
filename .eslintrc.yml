@@ -2,14 +2,11 @@ root: true
 
 plugins:
   - jest
-  - babel
 
 env:
   node: true
   jest: true
   browser: true
-
-parser: "@babel/eslint-parser"
 
 extends:
   - "airbnb-base"
