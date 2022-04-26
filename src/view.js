@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import onChange from 'on-change';
 
-const renderFeeds = (feeds, elements, i18n) => {
-  const feedsList = feeds.map(({ title, description }) => {
+const renderFeeds = (state, elements, i18n) => {
+  const feedsList = state.feeds.map(({ title, description }) => {
     const html = `
     <li class="list-group-item border-0 border-end-0">
       <h3 class="h6 m-0">${title}</h3>
@@ -114,7 +114,7 @@ export default (state, elements, i18n) => onChange(state, (path, value) => {
       renderPosts(state, elements, i18n);
       break;
     case 'feeds':
-      renderFeeds(value, elements, i18n);
+      renderFeeds(state, elements, i18n);
       break;
     case 'posts':
       renderPosts(state, elements, i18n);
