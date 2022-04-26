@@ -25,14 +25,14 @@ const renderFeeds = (feeds, elements, i18n) => {
   elements.feedsContainer.innerHTML = html;
 };
 
-const renderPosts = (state, posts, elements, i18n) => {
-  const postsList = posts.map(({ id, title, link }) => {
-    const classes = state.uiState.visitedPosts.includes(id) ? 'fw-normal link-secondary' : 'fw-bold';
+const renderPosts = (state, elements, i18n) => {
+  const postsList = state.posts.map(({ id, title, link }) => {
+    const classList = state.uiState.visitedPosts.includes(id) ? 'fw-normal link-secondary' : 'fw-bold';
     const html = `
       <li class="list-group-item d-flex justify-content-between align-items-start border-0 border-end-0">
         <a
           href="${link}"
-          class="${classes}"
+          class="${classList}"
           data-id="${id}"
           target="_blank"
           rel="noopener noreferrer"
@@ -111,13 +111,13 @@ export default (state, elements, i18n) => onChange(state, (path, value) => {
       renderModal(state, value, elements);
       break;
     case 'uiState.visitedPosts':
-      renderPosts(state, state.posts, elements, i18n);
+      renderPosts(state, elements, i18n);
       break;
     case 'feeds':
       renderFeeds(value, elements, i18n);
       break;
     case 'posts':
-      renderPosts(state, value, elements, i18n);
+      renderPosts(state, elements, i18n);
       break;
     case 'rssForm.error':
       renderError(value, elements, i18n);
