@@ -46,9 +46,9 @@ export default () => {
     e.preventDefault();
     watchedState.rssForm.state = 'filling';
     const formData = new FormData(e.target);
-    const url = formData.get('url');
+    const addedUrl = formData.get('url');
     const addedFeedsUrls = state.feeds.map((feed) => feed.url);
-    validateUrl(url, addedFeedsUrls, i18n)
+    validateUrl(addedUrl, addedFeedsUrls, i18n)
       .then((validUrl) => {
         watchedState.rssForm.error = null;
         watchedState.rssForm.state = 'processing';
@@ -57,7 +57,7 @@ export default () => {
       .then(({ data }) => {
         const parsedXml = parseXml(data.contents);
         const [feed, posts] = getFeedAndPosts(parsedXml);
-        const newFeed = { ...feed, id: _.uniqueId(), url };
+        const newFeed = { ...feed, id: _.uniqueId(), addedUrl };
         const newPosts = posts.map((post) => ({ ...post, id: _.uniqueId(), feedId: newFeed.id }));
         watchedState.feeds = [newFeed, ...state.feeds];
         watchedState.posts = [...newPosts, ...state.posts];
