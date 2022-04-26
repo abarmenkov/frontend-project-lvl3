@@ -15,4 +15,4 @@ make develop
 [![Node.js CI](https://github.com/abarmenkov/frontend-project-lvl3/actions/workflows/node.js.yml/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl3/actions/workflows/node.js.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0ee32834b621ad8afd30/maintainability)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl3/maintainability)
 
-[Демо](https://frontend-project-lvl3-ten-iota.vercel.app/)
+[Демо](https://frontend-project-lvl3-abarmenkov.vercel.app/)
