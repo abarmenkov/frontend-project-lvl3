@@ -7,8 +7,8 @@ import validateUrl from './utils/validator.js';
 import parseXml from './utils/parser.js';
 import getFeedAndPosts from './utils/utils.js';
 import updatePosts from './utils/updater.js';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default () => {
   const elements = {
