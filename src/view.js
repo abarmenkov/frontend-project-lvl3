@@ -90,10 +90,15 @@ const handleProcessState = (processState, elements, i18n) => {
     case 'processing':
       elements.input.readOnly = true;
       elements.button.disabled = true;
+      elements.button.textContent = '';
+      elements.button.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span class="sr-only">Загрузка...</span>`;
       break;
     case 'success':
       elements.input.readOnly = false;
       elements.button.disabled = false;
+      elements.button.innerHTML = '';
+      elements.button.textContent = 'Добавить';
       elements.form.reset();
       elements.form.focus();
       elements.feedbackContainer.classList.remove('text-danger');
