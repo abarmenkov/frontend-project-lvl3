@@ -20,7 +20,7 @@ export default () => {
     spanSpinner: document.createElement('span'),
     spanLoading: document.createElement('span'),
   };
-  const state = {
+  const initialState = {
     rssForm: {
       state: 'filling',
       error: null,
@@ -41,13 +41,13 @@ export default () => {
       ru,
     },
   });
-  const watchedState = initView(state, elements, i18n);
+  const watchedState = initView(initialState, elements, i18n);
   elements.form.addEventListener('submit', (e) => {
     e.preventDefault();
     watchedState.rssForm.state = 'filling';
     const formData = new FormData(e.target);
     const url = formData.get('url');
-    const urlsList = state.feeds.map((feed) => feed.url);
+    const urlsList = watchedState.feeds.map((feed) => feed.url);
     validateUrl(url, urlsList, i18n)
       .then((validUrl) => {
         watchedState.rssForm.error = null;
@@ -59,8 +59,8 @@ export default () => {
         const [feed, posts] = getFeedAndPosts(parsedXml);
         const newFeed = { ...feed, id: _.uniqueId(), url };
         const newPosts = posts.map((post) => ({ ...post, id: _.uniqueId(), feedId: newFeed.id }));
-        watchedState.feeds = [newFeed, ...state.feeds];
-        watchedState.posts = [...newPosts, ...state.posts];
+        watchedState.feeds = [newFeed, ...watchedState.feeds];
+        watchedState.posts = [...newPosts, ...watchedState.posts];
         watchedState.rssForm.state = 'success';
       })
       .catch((err) => {
@@ -74,11 +74,11 @@ export default () => {
   elements.postsContainer.addEventListener('click', ({ target }) => {
     if (target.closest('a')) {
       const { id } = target.dataset;
-      watchedState.uiState.visitedPosts = [...state.uiState.visitedPosts, id];
+      watchedState.uiState.visitedPosts = [...watchedState.uiState.visitedPosts, id];
     }
     if (target.closest('button')) {
       const { id } = target.dataset;
-      watchedState.uiState.visitedPosts = [...state.uiState.visitedPosts, id];
+      watchedState.uiState.visitedPosts = [...watchedState.uiState.visitedPosts, id];
       watchedState.uiState.modalId = id;
     }
   });
