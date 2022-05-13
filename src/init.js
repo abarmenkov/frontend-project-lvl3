@@ -7,8 +7,6 @@ import validateUrl from './utils/validator.js';
 import parseXml from './utils/parser.js';
 import getFeedAndPosts from './utils/utils.js';
 import updatePosts from './utils/updater.js';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default () => {
   const elements = {
@@ -19,6 +17,8 @@ export default () => {
     postsContainer: document.querySelector('.posts'),
     feedsContainer: document.querySelector('.feeds'),
     modal: document.querySelector('#modal'),
+    spanSpinner: document.createElement('span'),
+    spanLoading: document.createElement('span'),
   };
   const state = {
     rssForm: {
