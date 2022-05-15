@@ -117,7 +117,7 @@ const handleProcessState = (processState, elements, i18n) => {
       elements.spanSpinner.setAttribute('aria-hidden', 'true');
       elements.button.append(elements.spanSpinner);
       elements.spanLoading.classList.add('sr-only');
-      elements.spanLoading.textContent = 'Загрузка...';
+      elements.spanLoading.textContent = '  Загрузка...';
       elements.button.append(elements.spanLoading);
       break;
     case 'success':

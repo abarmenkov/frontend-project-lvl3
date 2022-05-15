@@ -4,8 +4,7 @@ import fetchData from './utils/fetchData.js';
 import initView from './view.js';
 import ru from './locales/ru.js';
 import validateUrl from './utils/validator.js';
-import parseXml from './utils/parser.js';
-import getFeedAndPosts from './utils/utils.js';
+import getFeedAndPosts from './utils/parser.js';
 import updatePosts from './utils/updater.js';
 
 export default () => {
@@ -55,8 +54,7 @@ export default () => {
         return fetchData(validUrl);
       })
       .then(({ data }) => {
-        const parsedXml = parseXml(data.contents);
-        const [feed, posts] = getFeedAndPosts(parsedXml);
+        const [feed, posts] = getFeedAndPosts(data.contents);
         const newFeed = { ...feed, id: _.uniqueId(), url };
         const newPosts = posts.map((post) => ({ ...post, id: _.uniqueId(), feedId: newFeed.id }));
         watchedState.feeds = [newFeed, ...watchedState.feeds];

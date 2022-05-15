@@ -1,15 +1,13 @@
 /* eslint-disable no-param-reassign */
 import _ from 'lodash';
 import fetchData from './fetchData.js';
-import parseXml from './parser.js';
-import getFeedAndPosts from './utils.js';
+import getFeedAndPosts from './parser.js';
 
 const updatePosts = (watchedState) => {
   const { feeds, posts } = watchedState;
   const promises = feeds.map(({ url, id }) => fetchData(url)
     .then(({ data }) => {
-      const parsedXml = parseXml(data.contents);
-      const [, receivedPosts] = getFeedAndPosts(parsedXml);
+      const [, receivedPosts] = getFeedAndPosts(data.contents);
       const oldPosts = posts.filter((post) => post.feedId === id);
       const addedPosts = _.differenceBy(receivedPosts, oldPosts, 'link');
       if (addedPosts.length !== 0) {
