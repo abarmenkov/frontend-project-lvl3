@@ -68,6 +68,8 @@ const renderPosts = (state, elements, i18n) => {
     aEl.dataset.id = post.id;
     aEl.setAttribute('target', '_blank');
     aEl.setAttribute('rel', 'noopener noreferrer');
+    const aElClasslist = state.uiState.visitedPosts.includes(post.id) ? 'fw-normal link-secondary' : 'fw-bold';
+    aEl.classList.add(`${aElClasslist}`);
     aEl.textContent = post.title;
     liEl.append(aEl);
 
