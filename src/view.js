@@ -42,7 +42,6 @@ const renderFeeds = (state, elements, i18n) => {
 
 const renderPosts = (state, elements, i18n) => {
   elements.postsContainer.innerHTML = '';
-
   const divEl = document.createElement('div');
   divEl.classList.add('card', 'border-0');
   elements.postsContainer.prepend(divEl);
@@ -58,25 +57,24 @@ const renderPosts = (state, elements, i18n) => {
 
   const ulEl = document.createElement('ul');
   ulEl.classList.add('list-group', 'border-0', 'rounded-0');
-
-  state.posts.forEach((post) => {
+  state.posts.forEach(({ id, title, link }) => {
+    const classes = state.uiState.visitedPosts.includes(id) ? 'fw-normal link-secondary' : 'fw-bold';
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
 
     const aEl = document.createElement('a');
-    aEl.setAttribute('href', post.url);
-    aEl.dataset.id = post.id;
+    aEl.setAttribute('class', classes);
+    aEl.setAttribute('href', link);
+    aEl.dataset.id = id;
     aEl.setAttribute('target', '_blank');
     aEl.setAttribute('rel', 'noopener noreferrer');
-    const aElClasslist = state.uiState.visitedPosts.includes(post.id) ? 'fw-normal link-secondary' : 'fw-bold';
-    aEl.classList.add(`${aElClasslist}`);
-    aEl.textContent = post.title;
+    aEl.textContent = title;
     liEl.append(aEl);
 
     const buttonEl = document.createElement('button');
     buttonEl.setAttribute('type', 'button');
     buttonEl.classList.add('btn', 'btn-outline-primary', 'btn-sm');
-    buttonEl.dataset.id = post.id;
+    buttonEl.dataset.id = id;
     buttonEl.dataset.bsToggle = 'modal';
     buttonEl.dataset.bsTarget = '#modal';
     buttonEl.textContent = i18n.t('posts.button');
@@ -84,7 +82,6 @@ const renderPosts = (state, elements, i18n) => {
 
     ulEl.append(liEl);
   });
-
   divEl.append(ulEl);
 };
 
