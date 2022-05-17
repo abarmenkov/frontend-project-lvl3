@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import _ from 'lodash';
+import axios from 'axios';
 import fetchData from './utils/fetchData.js';
 import initView from './view.js';
 import ru from './locales/ru.js';
@@ -67,7 +68,7 @@ export default () => {
           watchedState.rssForm.error = err.message;
         } else if (err.NotValidRss) {
           watchedState.rssForm.error = 'form.errors.notValidRss';
-        } else if (err.isAxiosError) {
+        } else if (axios.isAxiosError(err)) {
           watchedState.rssForm.error = 'form.errors.networkProblems';
         }
         watchedState.rssForm.state = 'filling';
