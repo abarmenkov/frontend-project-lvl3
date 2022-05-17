@@ -63,9 +63,11 @@ export default () => {
       })
       .catch((err) => {
         watchedState.rssForm.valid = err.name !== 'ValidationError';
-        watchedState.rssForm.error = err.isAxiosError
-          ? 'form.errors.networkProblems'
-          : err.message;
+        if (err.name === 'notValidRss') {
+          watchedState.rssForm.error = 'form.errors.notValidRss';
+        } else if (err.isAxiosError) {
+          watchedState.rssForm.error = 'form.errors.networkProblems';
+        }
         watchedState.rssForm.state = 'filling';
       });
   });
