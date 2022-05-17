@@ -64,11 +64,6 @@ export default () => {
       })
       .catch((err) => {
         watchedState.rssForm.valid = err.name !== 'ValidationError';
-        watchedState.rssForm.error = err.isAxiosError
-          ? 'form.errors.networkProblems'
-          : err.message;
-        watchedState.rssForm.state = 'filling';
-        /* watchedState.rssForm.valid = err.name !== 'ValidationError';
         if (err.name === 'ValidationError') {
           watchedState.rssForm.error = err.message;
         } else if (err.NotValidRss) {
@@ -76,7 +71,7 @@ export default () => {
         } else if (axios.isAxiosError(err)) {
           watchedState.rssForm.error = 'form.errors.networkProblems';
         }
-        watchedState.rssForm.state = 'filling'; */
+        watchedState.rssForm.state = 'filling';
       });
   });
   elements.postsContainer.addEventListener('click', ({ target }) => {
