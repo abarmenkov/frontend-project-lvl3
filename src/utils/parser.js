@@ -1,7 +1,7 @@
 export default (data) => {
   const parsedXml = new DOMParser().parseFromString(data, 'application/xml');
   const parseError = parsedXml.querySelector('parsererror');
-  if (parseError) throw new Error('NotValidRss');
+  if (parseError) throw new Error('form.errors.notValidRss');
 
   const feed = {
     title: parsedXml.querySelector('channel title').textContent,
