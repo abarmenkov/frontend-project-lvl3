@@ -29,7 +29,7 @@ export default () => {
     feeds: [],
     posts: [],
     uiState: {
-      visitedPosts: [],
+      visitedPosts: new Set(),
       modalId: null,
     },
   };
@@ -77,11 +77,11 @@ export default () => {
   elements.postsContainer.addEventListener('click', ({ target }) => {
     if (target.closest('a')) {
       const { id } = target.dataset;
-      watchedState.uiState.visitedPosts = [...watchedState.uiState.visitedPosts, id];
+      watchedState.uiState.visitedPosts.add(id);
     }
     if (target.closest('button')) {
       const { id } = target.dataset;
-      watchedState.uiState.visitedPosts = [...watchedState.uiState.visitedPosts, id];
+      watchedState.uiState.visitedPosts.add(id);
       watchedState.uiState.modalId = id;
     }
   });

@@ -58,7 +58,7 @@ const renderPosts = (state, elements, i18n) => {
   const ulEl = document.createElement('ul');
   ulEl.classList.add('list-group', 'border-0', 'rounded-0');
   state.posts.forEach(({ id, title, link }) => {
-    const classes = state.uiState.visitedPosts.includes(id) ? 'fw-normal link-secondary' : 'fw-bold';
+    const classes = state.uiState.visitedPosts.has(id) ? 'fw-normal link-secondary' : 'fw-bold';
     const liEl = document.createElement('li');
     liEl.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
 
