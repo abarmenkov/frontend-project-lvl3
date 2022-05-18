@@ -20,6 +20,7 @@ export default () => {
     spanSpinner: document.createElement('span'),
     spanLoading: document.createElement('span'),
   };
+
   const initialState = {
     rssForm: {
       state: 'filling',
@@ -33,6 +34,7 @@ export default () => {
       modalId: null,
     },
   };
+
   const i18n = i18next.createInstance();
   i18n.init({
     lng: 'ru',
@@ -41,7 +43,9 @@ export default () => {
       ru,
     },
   });
+
   const watchedState = initView(initialState, elements, i18n);
+
   elements.form.addEventListener('submit', (e) => {
     e.preventDefault();
     watchedState.rssForm.state = 'filling';
@@ -74,6 +78,7 @@ export default () => {
         watchedState.rssForm.state = 'filling';
       });
   });
+
   elements.postsContainer.addEventListener('click', ({ target }) => {
     if (target.closest('a')) {
       const { id } = target.dataset;
@@ -85,5 +90,6 @@ export default () => {
       watchedState.uiState.modalId = id;
     }
   });
+
   setTimeout(() => updatePosts(watchedState), 5000);
 };
